@@ -49,3 +49,5 @@ COPY --chown=65532:0 --from=libxmljs-builder /juice-shop/node_modules/libxmljs2 
 USER 65532
 EXPOSE 3000
 CMD ["/juice-shop/build/app.js"]
+
+njknjknjmk
