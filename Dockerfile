@@ -50,4 +50,4 @@ USER 65532
 EXPOSE 3000
 CMD ["/juice-shop/build/app.js"]
 
-njknjknjmk
+
