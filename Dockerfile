@@ -25,23 +25,24 @@ FROM node:20-buster as libxmljs-builder
 WORKDIR /juice-shop
 RUN apt-get update && apt-get install -y build-essential python3
 COPY --from=installer /juice-shop/node_modules ./node_modules
-RUN rm -rf node_modules/libxmljs2/build && \
+RUN rm -rf node_modules/libxmljs/build && \
   cd node_modules/libxmljs2 && \
   npm run build
 
 FROM gcr.io/distroless/nodejs20-debian11
 ARG BUILD_DATE
 ARG VCS_REF
-LABEL maintainer="Bjoern Kimminich <bjoern.kimminich@owasp.org>" \
+LABEL maintainer="Beyaz Fil <mscy2204@pieas.edu.pk>" \
     org.opencontainers.image.title="OWASP Juice Shop" \
     org.opencontainers.image.description="Probably the most modern and sophisticated insecure web application" \
-    org.opencontainers.image.authors="Bjoern Kimminich <bjoern.kimminich@owasp.org>" \
+    org.opencontainers.image.authors="Beyaz Fil <mscy2204@pieas.edu.pk>" \
     org.opencontainers.image.vendor="Open Web Application Security Project" \
     org.opencontainers.image.documentation="https://help.owasp-juice.shop" \
     org.opencontainers.image.licenses="MIT" \
     org.opencontainers.image.version="16.0.0" \
     org.opencontainers.image.url="https://owasp-juice.shop" \
     #org.opencontainers.image.source="https://github.com/juice-shop/juice-shop" \
+    org.opencontainers.image.source="https://github.com/maheen67/juice-shop-master" \
     org.opencontainers.image.revision=$VCS_REF \
     org.opencontainers.image.created=$BUILD_DATE
 WORKDIR /juice-shop
